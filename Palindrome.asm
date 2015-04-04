@@ -32,12 +32,12 @@ reverse:
 	dec	ecx
 	inc	ebx		
 	
-	or	al, 20h	;change 5bit to 1 | Lower Case ASCII
+	or	al, 20h		;change 5bit to 1 | Lower Case ASCII
 	or	ah, 20h	
 
 	cmp	al,ah		;if two chars are not equal
 	jne	isFalse
-	cmp	ecx, 1	;if copied over all chars it is a palindrome
+	cmp	ecx, 1		;if copied over all chars it is a palindrome
 	jle	isTrue
 	jmp	reverse
 isTrue:				;show result msg
