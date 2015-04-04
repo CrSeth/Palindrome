@@ -1,7 +1,7 @@
 %include "io.mac"
 
 .DATA				;Initialize Data
-instructionMsg	db	"Enter a phrase to see check if it is a palindrome: ", 0		
+instructionMsg	db	"Enter a phrase to check if it is a palindrome: ", 0		
 isPalindrome	db	"The phrase IS a palindrome!", 0
 notPalindrome	db	"The phrase is NOT a palindrome!", 0
 .UDATA
