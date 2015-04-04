@@ -31,6 +31,9 @@ reverse:
 	dec	esi
 	dec	ecx
 	inc	ebx		
+	
+	or	al, 20h	;change 5bit to 1 | Lower Case ASCII
+	or	ah, 20h	
 
 	cmp	al,ah		;if two chars are not equal
 	jne	isFalse
