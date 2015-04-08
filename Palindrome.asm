@@ -19,11 +19,11 @@ len:				;chars in phrase
 	cmp	al, 0		;if null char
 	je	decEsi		;end len
 	inc	esi		;increment index
+	inc	ecx
 	jne 	len
 decEsi:
 	dec	esi		;don't want 0
-	mov	eax, esi
-	shr	eax, 1
+	shr	ecx, 1
 reverse:	
 	mov	al, [esi]	;move first char to ah
 	mov	ah, [ebx]
@@ -31,6 +31,7 @@ reverse:
 	dec	esi
 	dec	ecx
 	inc	ebx		
+	PutInt	cx
 	
 	or	al, 20h		;change 5bit to 1 | Lower Case ASCII
 	or	ah, 20h	
