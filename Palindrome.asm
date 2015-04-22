@@ -1,3 +1,11 @@
+;-------------------------------------------------------
+;This program asks the user for a word or phrase and then
+;determines wether it is a palindrome or not.
+;---
+;Instituto Tecnologico de Costa Rica - 2015 
+;Course: Computer Achitecture
+;-------------------------------------------------------
+
 %include "io.mac"
 
 .DATA				;Initialize Data
