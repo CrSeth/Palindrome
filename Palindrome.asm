@@ -11,30 +11,30 @@ phrase		resb	16	;buffer to store word can't be over 15chars
 	PutStr	instructionMsg	
 	GetStr	phrase,16	;read the word
 	
-	mov	esi, phrase
+	mov	esi, phrase	;initialize pointesr to beginning of phrase
 	mov	ebx, phrase
-	xor	ecx, ecx
+	xor	ecx, ecx	;clear counter
 len:				;chars in phrase
 	mov	al, [esi]	;mov char to al
 	cmp	al, 0		;if null char
 	je	decEsi		;end len
 	inc	esi		;increment index
-	inc	ecx
-	jne 	len
+	inc	ecx		;inc counter
+	jne 	len		
 decEsi:
 	dec	esi		;don't want 0
 	shr	ecx, 1
 reverse:	
-	mov	al, [esi]	;move first char to ah
-	mov	ah, [ebx]
+	mov	al, [esi]	;move last char to al
+	mov	ah, [ebx]	;move fist char to ah
 	
-	dec	esi
+	dec	esi		;decrease the counter and end char pointer
 	dec	ecx
-	inc	ebx		
+	inc	ebx		;inc the front running pointer
 	PutInt	cx
 	
 	or	al, 20h		;change 5bit to 1 | Lower Case ASCII
-	or	ah, 20h	
+	or	ah, 20h		
 
 	cmp	al,ah		;if two chars are not equal
 	jne	isFalse
@@ -46,7 +46,7 @@ isTrue:				;show result msg
 	nwln
 	jmp	END
 isFalse:
-	PutStr	notPalindrome
+	PutStr	notPalindrome	
 	nwln
 	jmp	END	
 END:	
